@@ -1,13 +1,16 @@
-from dotenv import load_env
+import os
 import requests
 import yaml
+from dotenv import load_dotenv
 
-load_env()
-
-URL = f"https://discord.com/api/v9/applications/{APPLICATION_ID}/commands"
+load_dotenv()
 
 with open("commands.yaml", "r") as file:
   yaml_content = file.read()
+
+TOKEN = os.environ.get("TOKEN")
+APPLICATION_ID = os.environ.get("APPLICATION_ID")
+URL = f"https://discord.com/api/v9/applications/{APPLICATION_ID}/commands"
 
 commands = yaml.safe_load(yaml_content)
 headers = {"Authorization": f"Bot {TOKEN}", "Content-Type": "application/json"}
