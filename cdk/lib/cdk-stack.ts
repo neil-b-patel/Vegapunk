@@ -7,7 +7,7 @@ export class DiscordBotLambdaStack extends cdk.Stack {
     super(scope, id, props)
 
     const discordBotFunction = new lambda.DockerImageFunction(this, 'discordBotFunction', {
-      code: lambda.DockerImageCode.fromImageAsset('./src'),
+      code: lambda.DockerImageCode.fromImageAsset('../src'),
       memorySize: 1024,
       timeout: cdk.Duration.seconds(10),
       architecture: lambda.Architecture.X86_64,

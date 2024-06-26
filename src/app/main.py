@@ -18,7 +18,7 @@ async def interactions():
 
 @verify_key_decorator(DISCORD_PUBLIC_KEY)
 def interact(raw_request):
-  if raw_request["type" == 1]: # PING for Discord healthcheck
+  if raw_request["type"] == 1: # PING for Discord healthcheck
     response_data = {"type": 1} # PONG to validate bot backend health
   else:
     data = raw_request["data"]
